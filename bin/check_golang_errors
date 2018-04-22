@@ -5,6 +5,7 @@ NC='\033[0m' # No Color
 GREEN="\[$(tput setaf 2)\]"
 
 say "Go Core App compiling"  > /dev/null 2>&1
+port=$(bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/get_port_local)
 
 for ((i=1;i<=45;i++));
 do
@@ -12,7 +13,6 @@ do
    ret=$?
    grep "Bootstraping of Users" $GOPATH/src/github.com/davidrenne/asdineStormRocks/log/app.log  > /dev/null 2>&1
    ret2=$?
-   port=$(bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/get_port_local)
    grep "address already in use" $GOPATH/src/github.com/davidrenne/asdineStormRocks/log/app.log | grep $port  > /dev/null 2>&1
    ret3=$?
 
@@ -36,7 +36,7 @@ do
    if [[ "$ret" -eq 0 ]] || [[ "$ret2" -eq 0 ]]; then
      echo -e "${GREEN}>>>>>>>>>>>>>>>>>>GOLANG IS FULLY MOUNTED<<<<<<<<<<<<<<<<<<${NC} "
      set +e
-     say "server compiled"  > /dev/null 2>&1
+     say "server compiled at localhost port $port"  > /dev/null 2>&1
      set -e
      i=100000
    else

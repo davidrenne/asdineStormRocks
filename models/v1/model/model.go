@@ -808,58 +808,72 @@ func ResolveEntity(key string) modelEntity {
 func ResolveField(collectionName string, fieldName string) string {
 
 	switch collectionName + fieldName {
-	case "RoleId":
+	case "PreferenceKey":
+		return "string"
+	case "PreferenceValue":
+		return "string"
+	case "PreferenceCreateDate":
+		return "dateTime"
+	case "PreferenceUpdateDate":
+		return "dateTime"
+	case "PreferenceLastUpdateId":
+		return "string"
+	case "AccountRoleId":
 		return "int"
-	case "RoleName":
+	case "AccountRoleAccountId":
 		return "string"
-	case "RoleAccountId":
+	case "AccountRoleUserId":
 		return "string"
-	case "RoleCanDelete":
+	case "AccountRoleRoleId":
+		return "string"
+	case "AccountRoleCreateDate":
+		return "dateTime"
+	case "AccountRoleUpdateDate":
+		return "dateTime"
+	case "AccountRoleLastUpdateId":
+		return "string"
+	case "StateId":
+		return "int"
+	case "StateShort":
+		return "string"
+	case "StateName":
+		return "string"
+	case "StateAlternativeName":
+		return "string"
+	case "StateCountry":
+		return "string"
+	case "StateCreateDate":
+		return "dateTime"
+	case "StateUpdateDate":
+		return "dateTime"
+	case "StateLastUpdateId":
+		return "string"
+	case "PasswordResetId":
+		return "int"
+	case "PasswordResetUserId":
+		return "string"
+	case "PasswordResetComplete":
 		return "bool"
-	case "RoleAccountType":
+	case "PasswordResetUrl":
 		return "string"
-	case "RoleShortName":
+	case "PasswordResetCreateDate":
+		return "dateTime"
+	case "PasswordResetUpdateDate":
+		return "dateTime"
+	case "PasswordResetLastUpdateId":
 		return "string"
-	case "RoleFeatureId":
+	case "CountryId":
 		return "int"
-	case "RoleFeatureRoleId":
+	case "CountryIso":
 		return "string"
-	case "RoleFeatureFeatureId":
+	case "CountryName":
 		return "string"
-	case "AccountId":
-		return "int"
-	case "AccountAccountName":
+	case "CountryCreateDate":
+		return "dateTime"
+	case "CountryUpdateDate":
+		return "dateTime"
+	case "CountryLastUpdateId":
 		return "string"
-	case "AccountAddress1":
-		return "string"
-	case "AccountAddress2":
-		return "string"
-	case "AccountRegion":
-		return "string"
-	case "AccountCity":
-		return "string"
-	case "AccountPostCode":
-		return "string"
-	case "AccountCountryId":
-		return "string"
-	case "AccountStateName":
-		return "string"
-	case "AccountStateId":
-		return "string"
-	case "AccountPrimaryPhone":
-		return "object"
-	case "AccountSecondaryPhone":
-		return "object"
-	case "AccountEmail":
-		return "string"
-	case "AccountAccountTypeShort":
-		return "string"
-	case "AccountAccountTypeLong":
-		return "string"
-	case "AccountRelatedAcctId":
-		return "string"
-	case "AccountIsSystemAccount":
-		return "bool"
 	case "UserId":
 		return "int"
 	case "UserFirst":
@@ -910,69 +924,11 @@ func ResolveField(collectionName string, fieldName string) string {
 		return "bool"
 	case "UserEnforcePasswordChange":
 		return "bool"
-	case "SecondaryPhoneInfoValue":
-		return "string"
-	case "SecondaryPhoneInfoNumeric":
-		return "string"
-	case "SecondaryPhoneInfoDialCode":
-		return "string"
-	case "SecondaryPhoneInfoCountryISO":
-		return "string"
-	case "FeatureGroupId":
-		return "int"
-	case "FeatureGroupName":
-		return "string"
-	case "FeatureGroupAccountType":
-		return "string"
-	case "CountryId":
-		return "int"
-	case "CountryIso":
-		return "string"
-	case "CountryName":
-		return "string"
-	case "PreferenceKey":
-		return "string"
-	case "PreferenceValue":
-		return "string"
-	case "AccountRoleId":
-		return "int"
-	case "AccountRoleAccountId":
-		return "string"
-	case "AccountRoleUserId":
-		return "string"
-	case "AccountRoleRoleId":
-		return "string"
-	case "StateId":
-		return "int"
-	case "StateShort":
-		return "string"
-	case "StateName":
-		return "string"
-	case "StateAlternativeName":
-		return "string"
-	case "StateCountry":
-		return "string"
-	case "AppErrorId":
-		return "int"
-	case "AppErrorAccountId":
-		return "string"
-	case "AppErrorUserId":
-		return "string"
-	case "AppErrorClientSide":
-		return "bool"
-	case "AppErrorUrl":
-		return "string"
-	case "AppErrorMessage":
-		return "string"
-	case "AppErrorStackShown":
-		return "string"
-	case "PasswordResetId":
-		return "int"
-	case "PasswordResetUserId":
-		return "string"
-	case "PasswordResetComplete":
-		return "bool"
-	case "PasswordResetUrl":
+	case "UserCreateDate":
+		return "dateTime"
+	case "UserUpdateDate":
+		return "dateTime"
+	case "UserLastUpdateId":
 		return "string"
 	case "FeatureId":
 		return "int"
@@ -984,9 +940,25 @@ func ResolveField(collectionName string, fieldName string) string {
 		return "string"
 	case "FeatureFeatureGroupId":
 		return "string"
-	case "PasswordId":
-		return "int"
-	case "PasswordValue":
+	case "FeatureCreateDate":
+		return "dateTime"
+	case "FeatureUpdateDate":
+		return "dateTime"
+	case "FeatureLastUpdateId":
+		return "string"
+	case "SecondaryPhoneInfoValue":
+		return "string"
+	case "SecondaryPhoneInfoNumeric":
+		return "string"
+	case "SecondaryPhoneInfoDialCode":
+		return "string"
+	case "SecondaryPhoneInfoCountryISO":
+		return "string"
+	case "SecondaryPhoneInfoCreateDate":
+		return "dateTime"
+	case "SecondaryPhoneInfoUpdateDate":
+		return "dateTime"
+	case "SecondaryPhoneInfoLastUpdateId":
 		return "string"
 	case "ActivityLogId":
 		return "int"
@@ -1002,18 +974,42 @@ func ResolveField(collectionName string, fieldName string) string {
 		return "string"
 	case "ActivityLogValue":
 		return "string"
-	case "ServerSettingId":
+	case "ActivityLogCreateDate":
+		return "dateTime"
+	case "ActivityLogUpdateDate":
+		return "dateTime"
+	case "ActivityLogLastUpdateId":
+		return "string"
+	case "RoleFeatureId":
 		return "int"
-	case "ServerSettingName":
+	case "RoleFeatureRoleId":
 		return "string"
-	case "ServerSettingKey":
+	case "RoleFeatureFeatureId":
 		return "string"
-	case "ServerSettingCategory":
+	case "RoleFeatureCreateDate":
+		return "dateTime"
+	case "RoleFeatureUpdateDate":
+		return "dateTime"
+	case "RoleFeatureLastUpdateId":
 		return "string"
-	case "ServerSettingValue":
+	case "RoleId":
+		return "int"
+	case "RoleName":
 		return "string"
-	case "ServerSettingAny":
-		return "interface"
+	case "RoleAccountId":
+		return "string"
+	case "RoleCanDelete":
+		return "bool"
+	case "RoleAccountType":
+		return "string"
+	case "RoleShortName":
+		return "string"
+	case "RoleCreateDate":
+		return "dateTime"
+	case "RoleUpdateDate":
+		return "dateTime"
+	case "RoleLastUpdateId":
+		return "string"
 	case "FileObjectId":
 		return "int"
 	case "FileObjectName":
@@ -1035,6 +1031,126 @@ func ResolveField(collectionName string, fieldName string) string {
 	case "FileObjectMD5":
 		return "string"
 	case "FileObjectAccountId":
+		return "string"
+	case "FileObjectCreateDate":
+		return "dateTime"
+	case "FileObjectUpdateDate":
+		return "dateTime"
+	case "FileObjectLastUpdateId":
+		return "string"
+	case "ServerSettingId":
+		return "int"
+	case "ServerSettingName":
+		return "string"
+	case "ServerSettingKey":
+		return "string"
+	case "ServerSettingCategory":
+		return "string"
+	case "ServerSettingValue":
+		return "string"
+	case "ServerSettingAny":
+		return "interface"
+	case "ServerSettingCreateDate":
+		return "dateTime"
+	case "ServerSettingUpdateDate":
+		return "dateTime"
+	case "ServerSettingLastUpdateId":
+		return "string"
+	case "AppErrorId":
+		return "int"
+	case "AppErrorAccountId":
+		return "string"
+	case "AppErrorUserId":
+		return "string"
+	case "AppErrorClientSide":
+		return "bool"
+	case "AppErrorUrl":
+		return "string"
+	case "AppErrorMessage":
+		return "string"
+	case "AppErrorStackShown":
+		return "string"
+	case "AppErrorCreateDate":
+		return "dateTime"
+	case "AppErrorUpdateDate":
+		return "dateTime"
+	case "AppErrorLastUpdateId":
+		return "string"
+	case "AccountId":
+		return "int"
+	case "AccountAccountName":
+		return "string"
+	case "AccountAddress1":
+		return "string"
+	case "AccountAddress2":
+		return "string"
+	case "AccountRegion":
+		return "string"
+	case "AccountCity":
+		return "string"
+	case "AccountPostCode":
+		return "string"
+	case "AccountCountryId":
+		return "string"
+	case "AccountStateName":
+		return "string"
+	case "AccountStateId":
+		return "string"
+	case "AccountPrimaryPhone":
+		return "object"
+	case "AccountSecondaryPhone":
+		return "object"
+	case "AccountEmail":
+		return "string"
+	case "AccountAccountTypeShort":
+		return "string"
+	case "AccountAccountTypeLong":
+		return "string"
+	case "AccountRelatedAcctId":
+		return "string"
+	case "AccountIsSystemAccount":
+		return "bool"
+	case "AccountCreateDate":
+		return "dateTime"
+	case "AccountUpdateDate":
+		return "dateTime"
+	case "AccountLastUpdateId":
+		return "string"
+	case "PhoneInfoValue":
+		return "string"
+	case "PhoneInfoNumeric":
+		return "string"
+	case "PhoneInfoDialCode":
+		return "string"
+	case "PhoneInfoCountryISO":
+		return "string"
+	case "PhoneInfoCreateDate":
+		return "dateTime"
+	case "PhoneInfoUpdateDate":
+		return "dateTime"
+	case "PhoneInfoLastUpdateId":
+		return "string"
+	case "FeatureGroupId":
+		return "int"
+	case "FeatureGroupName":
+		return "string"
+	case "FeatureGroupAccountType":
+		return "string"
+	case "FeatureGroupCreateDate":
+		return "dateTime"
+	case "FeatureGroupUpdateDate":
+		return "dateTime"
+	case "FeatureGroupLastUpdateId":
+		return "string"
+	case "PasswordId":
+		return "int"
+	case "PasswordValue":
+		return "string"
+	case "PasswordCreateDate":
+		return "dateTime"
+	case "PasswordUpdateDate":
+		return "dateTime"
+	case "PasswordLastUpdateId":
 		return "string"
 	}
 	return ""
@@ -1467,48 +1583,33 @@ func joinField(j join, id string, fieldToSet reflect.Value, remainingRecursions 
 }
 
 const (
-	FIELD_ACCOUNT_ID                    = "Id"
-	FIELD_ACCOUNT_ACCOUNTNAME           = "AccountName"
-	FIELD_ACCOUNT_ADDRESS1              = "Address1"
-	FIELD_ACCOUNT_ADDRESS2              = "Address2"
-	FIELD_ACCOUNT_REGION                = "Region"
-	FIELD_ACCOUNT_CITY                  = "City"
-	FIELD_ACCOUNT_POSTCODE              = "PostCode"
-	FIELD_ACCOUNT_COUNTRYID             = "CountryId"
-	FIELD_ACCOUNT_STATENAME             = "StateName"
-	FIELD_ACCOUNT_STATEID               = "StateId"
-	FIELD_ACCOUNT_PRIMARYPHONE          = "PrimaryPhone"
-	FIELD_ACCOUNT_SECONDARYPHONE        = "SecondaryPhone"
-	FIELD_ACCOUNT_EMAIL                 = "Email"
-	FIELD_ACCOUNT_ACCOUNTTYPESHORT      = "AccountTypeShort"
-	FIELD_ACCOUNT_ACCOUNTTYPELONG       = "AccountTypeLong"
-	FIELD_ACCOUNT_RELATEDACCTID         = "RelatedAcctId"
-	FIELD_ACCOUNT_ISSYSTEMACCOUNT       = "IsSystemAccount"
-	FIELD_ROLE_ID                       = "Id"
-	FIELD_ROLE_NAME                     = "Name"
-	FIELD_ROLE_ACCOUNTID                = "AccountId"
-	FIELD_ROLE_CANDELETE                = "CanDelete"
-	FIELD_ROLE_ACCOUNTTYPE              = "AccountType"
-	FIELD_ROLE_SHORTNAME                = "ShortName"
-	FIELD_ROLEFEATURE_ID                = "Id"
-	FIELD_ROLEFEATURE_ROLEID            = "RoleId"
-	FIELD_ROLEFEATURE_FEATUREID         = "FeatureId"
-	FIELD_ACCOUNTROLE_ID                = "Id"
-	FIELD_ACCOUNTROLE_ACCOUNTID         = "AccountId"
-	FIELD_ACCOUNTROLE_USERID            = "UserId"
-	FIELD_ACCOUNTROLE_ROLEID            = "RoleId"
 	FIELD_STATE_ID                      = "Id"
 	FIELD_STATE_SHORT                   = "Short"
 	FIELD_STATE_NAME                    = "Name"
 	FIELD_STATE_ALTERNATIVENAME         = "AlternativeName"
 	FIELD_STATE_COUNTRY                 = "Country"
-	FIELD_APPERROR_ID                   = "Id"
-	FIELD_APPERROR_ACCOUNTID            = "AccountId"
-	FIELD_APPERROR_USERID               = "UserId"
-	FIELD_APPERROR_CLIENTSIDE           = "ClientSide"
-	FIELD_APPERROR_URL                  = "Url"
-	FIELD_APPERROR_MESSAGE              = "Message"
-	FIELD_APPERROR_STACKSHOWN           = "StackShown"
+	FIELD_PASSWORDRESET_ID              = "Id"
+	FIELD_PASSWORDRESET_USERID          = "UserId"
+	FIELD_PASSWORDRESET_COMPLETE        = "Complete"
+	FIELD_PASSWORDRESET_URL             = "Url"
+	FIELD_COUNTRY_ID                    = "Id"
+	FIELD_COUNTRY_ISO                   = "Iso"
+	FIELD_COUNTRY_NAME                  = "Name"
+	FIELD_PREFERENCE_KEY                = "Key"
+	FIELD_PREFERENCE_VALUE              = "Value"
+	FIELD_ACCOUNTROLE_ID                = "Id"
+	FIELD_ACCOUNTROLE_ACCOUNTID         = "AccountId"
+	FIELD_ACCOUNTROLE_USERID            = "UserId"
+	FIELD_ACCOUNTROLE_ROLEID            = "RoleId"
+	FIELD_FEATURE_ID                    = "Id"
+	FIELD_FEATURE_KEY                   = "Key"
+	FIELD_FEATURE_NAME                  = "Name"
+	FIELD_FEATURE_DESCRIPTION           = "Description"
+	FIELD_FEATURE_FEATUREGROUPID        = "FeatureGroupId"
+	FIELD_SECONDARYPHONEINFO_VALUE      = "Value"
+	FIELD_SECONDARYPHONEINFO_NUMERIC    = "Numeric"
+	FIELD_SECONDARYPHONEINFO_DIALCODE   = "DialCode"
+	FIELD_SECONDARYPHONEINFO_COUNTRYISO = "CountryISO"
 	FIELD_USER_ID                       = "Id"
 	FIELD_USER_FIRST                    = "First"
 	FIELD_USER_LAST                     = "Last"
@@ -1534,42 +1635,6 @@ const (
 	FIELD_USER_LOGINATTEMPTS            = "LoginAttempts"
 	FIELD_USER_LOCKED                   = "Locked"
 	FIELD_USER_ENFORCEPASSWORDCHANGE    = "EnforcePasswordChange"
-	FIELD_SECONDARYPHONEINFO_VALUE      = "Value"
-	FIELD_SECONDARYPHONEINFO_NUMERIC    = "Numeric"
-	FIELD_SECONDARYPHONEINFO_DIALCODE   = "DialCode"
-	FIELD_SECONDARYPHONEINFO_COUNTRYISO = "CountryISO"
-	FIELD_FEATUREGROUP_ID               = "Id"
-	FIELD_FEATUREGROUP_NAME             = "Name"
-	FIELD_FEATUREGROUP_ACCOUNTTYPE      = "AccountType"
-	FIELD_COUNTRY_ID                    = "Id"
-	FIELD_COUNTRY_ISO                   = "Iso"
-	FIELD_COUNTRY_NAME                  = "Name"
-	FIELD_PREFERENCE_KEY                = "Key"
-	FIELD_PREFERENCE_VALUE              = "Value"
-	FIELD_ACTIVITYLOG_ID                = "Id"
-	FIELD_ACTIVITYLOG_ACCOUNTID         = "AccountId"
-	FIELD_ACTIVITYLOG_USERID            = "UserId"
-	FIELD_ACTIVITYLOG_ENTITY            = "Entity"
-	FIELD_ACTIVITYLOG_ENTITYID          = "EntityId"
-	FIELD_ACTIVITYLOG_ACTION            = "Action"
-	FIELD_ACTIVITYLOG_VALUE             = "Value"
-	FIELD_PASSWORDRESET_ID              = "Id"
-	FIELD_PASSWORDRESET_USERID          = "UserId"
-	FIELD_PASSWORDRESET_COMPLETE        = "Complete"
-	FIELD_PASSWORDRESET_URL             = "Url"
-	FIELD_FEATURE_ID                    = "Id"
-	FIELD_FEATURE_KEY                   = "Key"
-	FIELD_FEATURE_NAME                  = "Name"
-	FIELD_FEATURE_DESCRIPTION           = "Description"
-	FIELD_FEATURE_FEATUREGROUPID        = "FeatureGroupId"
-	FIELD_PASSWORD_ID                   = "Id"
-	FIELD_PASSWORD_VALUE                = "Value"
-	FIELD_SERVERSETTING_ID              = "Id"
-	FIELD_SERVERSETTING_NAME            = "Name"
-	FIELD_SERVERSETTING_KEY             = "Key"
-	FIELD_SERVERSETTING_CATEGORY        = "Category"
-	FIELD_SERVERSETTING_VALUE           = "Value"
-	FIELD_SERVERSETTING_ANY             = "Any"
 	FIELD_FILEOBJECT_ID                 = "Id"
 	FIELD_FILEOBJECT_NAME               = "Name"
 	FIELD_FILEOBJECT_PATH               = "Path"
@@ -1581,4 +1646,59 @@ const (
 	FIELD_FILEOBJECT_MODIFIED           = "Modified"
 	FIELD_FILEOBJECT_MD5                = "MD5"
 	FIELD_FILEOBJECT_ACCOUNTID          = "AccountId"
+	FIELD_SERVERSETTING_ID              = "Id"
+	FIELD_SERVERSETTING_NAME            = "Name"
+	FIELD_SERVERSETTING_KEY             = "Key"
+	FIELD_SERVERSETTING_CATEGORY        = "Category"
+	FIELD_SERVERSETTING_VALUE           = "Value"
+	FIELD_SERVERSETTING_ANY             = "Any"
+	FIELD_APPERROR_ID                   = "Id"
+	FIELD_APPERROR_ACCOUNTID            = "AccountId"
+	FIELD_APPERROR_USERID               = "UserId"
+	FIELD_APPERROR_CLIENTSIDE           = "ClientSide"
+	FIELD_APPERROR_URL                  = "Url"
+	FIELD_APPERROR_MESSAGE              = "Message"
+	FIELD_APPERROR_STACKSHOWN           = "StackShown"
+	FIELD_ACTIVITYLOG_ID                = "Id"
+	FIELD_ACTIVITYLOG_ACCOUNTID         = "AccountId"
+	FIELD_ACTIVITYLOG_USERID            = "UserId"
+	FIELD_ACTIVITYLOG_ENTITY            = "Entity"
+	FIELD_ACTIVITYLOG_ENTITYID          = "EntityId"
+	FIELD_ACTIVITYLOG_ACTION            = "Action"
+	FIELD_ACTIVITYLOG_VALUE             = "Value"
+	FIELD_ROLEFEATURE_ID                = "Id"
+	FIELD_ROLEFEATURE_ROLEID            = "RoleId"
+	FIELD_ROLEFEATURE_FEATUREID         = "FeatureId"
+	FIELD_ROLE_ID                       = "Id"
+	FIELD_ROLE_NAME                     = "Name"
+	FIELD_ROLE_ACCOUNTID                = "AccountId"
+	FIELD_ROLE_CANDELETE                = "CanDelete"
+	FIELD_ROLE_ACCOUNTTYPE              = "AccountType"
+	FIELD_ROLE_SHORTNAME                = "ShortName"
+	FIELD_PHONEINFO_VALUE               = "Value"
+	FIELD_PHONEINFO_NUMERIC             = "Numeric"
+	FIELD_PHONEINFO_DIALCODE            = "DialCode"
+	FIELD_PHONEINFO_COUNTRYISO          = "CountryISO"
+	FIELD_FEATUREGROUP_ID               = "Id"
+	FIELD_FEATUREGROUP_NAME             = "Name"
+	FIELD_FEATUREGROUP_ACCOUNTTYPE      = "AccountType"
+	FIELD_PASSWORD_ID                   = "Id"
+	FIELD_PASSWORD_VALUE                = "Value"
+	FIELD_ACCOUNT_ID                    = "Id"
+	FIELD_ACCOUNT_ACCOUNTNAME           = "AccountName"
+	FIELD_ACCOUNT_ADDRESS1              = "Address1"
+	FIELD_ACCOUNT_ADDRESS2              = "Address2"
+	FIELD_ACCOUNT_REGION                = "Region"
+	FIELD_ACCOUNT_CITY                  = "City"
+	FIELD_ACCOUNT_POSTCODE              = "PostCode"
+	FIELD_ACCOUNT_COUNTRYID             = "CountryId"
+	FIELD_ACCOUNT_STATENAME             = "StateName"
+	FIELD_ACCOUNT_STATEID               = "StateId"
+	FIELD_ACCOUNT_PRIMARYPHONE          = "PrimaryPhone"
+	FIELD_ACCOUNT_SECONDARYPHONE        = "SecondaryPhone"
+	FIELD_ACCOUNT_EMAIL                 = "Email"
+	FIELD_ACCOUNT_ACCOUNTTYPESHORT      = "AccountTypeShort"
+	FIELD_ACCOUNT_ACCOUNTTYPELONG       = "AccountTypeLong"
+	FIELD_ACCOUNT_RELATEDACCTID         = "RelatedAcctId"
+	FIELD_ACCOUNT_ISSYSTEMACCOUNT       = "IsSystemAccount"
 )

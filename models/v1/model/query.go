@@ -21,9 +21,9 @@ import (
 	"github.com/DanielRenne/GoCore/core/extensions"
 	"github.com/DanielRenne/GoCore/core/logger"
 	dateformatter "github.com/altipla-consulting/i18n-dateformatter"
-	"github.com/asdine/storm"
 	querySet "github.com/asdine/storm/q"
 	"github.com/globalsign/mgo/bson"
+	"github.com/asdine/storm"
 )
 
 const (
@@ -70,21 +70,21 @@ type view struct {
 }
 
 type Query struct {
-	m              bson.M
-	o              []bson.M
-	ao             map[string][]map[string][]bson.M
-	stopLog        bool
-	limit          int
-	skip           int
-	sort           []string
-	entityName     string
-	collectionName string
-	e              error
-	joins          map[string]joinType
-	format         DataFormat
-	renderViews    bool
-	whiteListed    []QueryFieldFilter
-	blackListed    []QueryFieldFilter
+	m           bson.M
+	o           []bson.M
+	ao          map[string][]map[string][]bson.M
+	stopLog     bool
+	limit       int
+	skip        int
+	sort        []string
+	entityName  string
+	collectionName  string
+	e           error
+	joins       map[string]joinType
+	format      DataFormat
+	renderViews bool
+	whiteListed []QueryFieldFilter
+	blackListed []QueryFieldFilter
 }
 
 type QueryIterator struct {
@@ -141,8 +141,9 @@ func (self *Query) ById(objectId interface{}, modelInstance interface{}) error {
 	foundCache := dbServices.CollectionCache{}.Fetch(self.collectionName, objId.Hex(), modelInstance)
 
 	if foundCache == false {
-		err = dbServices.BoltDB.One("Id", objId, modelInstance)
+		err =  dbServices.BoltDB.One("Id", objId, modelInstance)
 	}
+
 
 	if err != nil {
 		// This callback is used for if the Ethernet port is unplugged
@@ -164,6 +165,7 @@ func (self *Query) ById(objectId interface{}, modelInstance interface{}) error {
 	return self.processJoinsAndViews(modelInstance)
 
 }
+
 
 func (self *Query) Join(criteria string) *Query {
 
@@ -811,6 +813,7 @@ func GetInterfaceSlice(obj interface{}) ([]interface{}, error) {
 	}
 	return objArray, nil
 }
+
 
 func (self *Query) TotalRows(x interface{}) int {
 	if serverSettings.WebConfig.Application.LogQueries {
@@ -1472,7 +1475,7 @@ func (self *Query) Iter() (qi *QueryIterator) {
 
 func (self *Query) GenerateQuery() storm.Query {
 	var q storm.Query
-	logInfo := false
+	logInfo := true
 	if self.o != nil {
 		var filters []querySet.Matcher
 		for _, v := range self.o {
@@ -1853,7 +1856,7 @@ func (self *Query) GenerateQuery() storm.Query {
 												}
 											}
 										} else {
-
+											filters = append(filters, querySet.True())
 											if logInfo {
 												log.Println("aodave-interface cast not ok")
 											}

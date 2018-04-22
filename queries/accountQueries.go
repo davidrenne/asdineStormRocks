@@ -58,8 +58,6 @@ func (self queryAccounts) QueryByUser2(user model.User, account model.Account) (
 		err = errors.Wrap(err, core.Debug.ErrLineAndFile(err))
 		return
 	}
-	session_functions.Dump(accountIds)
-
 	q = model.Accounts.Query().InitAndOr().AddAnd().AndIn(1, model.Q("Id", accountIds))
 	return
 }
@@ -76,20 +74,30 @@ func (self queryAccounts) QueryByUser(user model.User, account model.Account) (q
 
 func (self queryAccounts) GetAccountIds(user model.User, account model.Account) (accountIds []string, err error) {
 	var accountRoles []model.AccountRole
-	err = model.AccountRoles.Query().In(model.Q("UserId", user.Id.Hex())).All(&accountRoles)
 
-	if err != nil {
-		err = errors.Wrap(err, core.Debug.ErrLineAndFile(err))
+	if account.IsSystemAccount {
+		var accounts []model.Account
+		err = model.Accounts.Query().All(&accounts)
+		if err != nil {
+			err = errors.Wrap(err, core.Debug.ErrLineAndFile(err))
+			return
+		}
+		for _, acct := range accounts {
+			accountIds = append(accountIds, acct.Id.Hex())
+		}
 		return
-	}
+	} else {
+		// normal users can see their account and sub accounts
+		err = model.AccountRoles.Query().In(model.Q("UserId", user.Id.Hex())).All(&accountRoles)
 
-	for _, accR := range accountRoles {
-
-		if accR.AccountId == account.Id.Hex() {
-			continue
+		if err != nil {
+			err = errors.Wrap(err, core.Debug.ErrLineAndFile(err))
+			return
 		}
 
-		accountIds = append(accountIds, accR.AccountId)
+		for _, accR := range accountRoles {
+			accountIds = append(accountIds, accR.AccountId)
+		}
 	}
 	return
 }

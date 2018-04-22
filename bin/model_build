@@ -1,5 +1,6 @@
 #!/bin/bash
 cd $GOPATH/
+bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/kill_golang
 echo ">>>>>>>>>>>>>>>>>>  Generating gocore models <<<<<<<<<<<<<<<<<<" >> $GOPATH/src/github.com/davidrenne/asdineStormRocks/log/db.log
 /usr/local/go/bin/go run src/github.com/davidrenne/asdineStormRocks/buildAsdineStormRocks/buildAsdineStormRocks.go >> $GOPATH/src/github.com/davidrenne/asdineStormRocks/log/db.log
 ret=$?

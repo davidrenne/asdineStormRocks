@@ -597,8 +597,8 @@ func (obj modelFileObjects) ReflectByFieldName(fieldName string, x interface{}) 
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "ModifiedUnix":
-		obj, ok := x.(int)
+	case "Type":
+		obj, ok := x.(string)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
@@ -613,7 +613,39 @@ func (obj modelFileObjects) ReflectByFieldName(fieldName string, x interface{}) 
 		}
 		value = reflect.ValueOf(obj)
 		return
+	case "MD5":
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
 	case "AccountId":
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "Name":
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "SingleDownload":
+		obj, ok := x.(bool)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "Content":
 		obj, ok := x.(string)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
@@ -629,14 +661,6 @@ func (obj modelFileObjects) ReflectByFieldName(fieldName string, x interface{}) 
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "Name":
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
 	case "Path":
 		obj, ok := x.(string)
 		if !ok {
@@ -645,32 +669,8 @@ func (obj modelFileObjects) ReflectByFieldName(fieldName string, x interface{}) 
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "Content":
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "SingleDownload":
-		obj, ok := x.(bool)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "Type":
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "MD5":
-		obj, ok := x.(string)
+	case "ModifiedUnix":
+		obj, ok := x.(int)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
@@ -684,14 +684,14 @@ func (obj modelFileObjects) ReflectByFieldName(fieldName string, x interface{}) 
 func (obj modelFileObjects) ReflectBaseTypeByFieldName(fieldName string, x interface{}) (value reflect.Value, err error) {
 
 	switch fieldName {
-	case "SingleDownload":
+	case "Size":
 		if x == nil {
-			var obj bool
+			var obj int
 			value = reflect.ValueOf(obj)
 			return
 		}
 
-		obj, ok := x.(bool)
+		obj, ok := x.(int)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
@@ -706,34 +706,6 @@ func (obj modelFileObjects) ReflectBaseTypeByFieldName(fieldName string, x inter
 		}
 
 		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "MD5":
-		if x == nil {
-			var obj string
-			value = reflect.ValueOf(obj)
-			return
-		}
-
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "ModifiedUnix":
-		if x == nil {
-			var obj int
-			value = reflect.ValueOf(obj)
-			return
-		}
-
-		obj, ok := x.(int)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
@@ -754,7 +726,63 @@ func (obj modelFileObjects) ReflectBaseTypeByFieldName(fieldName string, x inter
 		}
 		value = reflect.ValueOf(obj)
 		return
+	case "MD5":
+		if x == nil {
+			var obj string
+			value = reflect.ValueOf(obj)
+			return
+		}
+
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
 	case "AccountId":
+		if x == nil {
+			var obj string
+			value = reflect.ValueOf(obj)
+			return
+		}
+
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "Name":
+		if x == nil {
+			var obj string
+			value = reflect.ValueOf(obj)
+			return
+		}
+
+		obj, ok := x.(string)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "SingleDownload":
+		if x == nil {
+			var obj bool
+			value = reflect.ValueOf(obj)
+			return
+		}
+
+		obj, ok := x.(bool)
+		if !ok {
+			err = errors.New("Failed to typecast interface.")
+			return
+		}
+		value = reflect.ValueOf(obj)
+		return
+	case "Content":
 		if x == nil {
 			var obj string
 			value = reflect.ValueOf(obj)
@@ -782,20 +810,6 @@ func (obj modelFileObjects) ReflectBaseTypeByFieldName(fieldName string, x inter
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "Name":
-		if x == nil {
-			var obj string
-			value = reflect.ValueOf(obj)
-			return
-		}
-
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
 	case "Path":
 		if x == nil {
 			var obj string
@@ -810,21 +824,7 @@ func (obj modelFileObjects) ReflectBaseTypeByFieldName(fieldName string, x inter
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "Content":
-		if x == nil {
-			var obj string
-			value = reflect.ValueOf(obj)
-			return
-		}
-
-		obj, ok := x.(string)
-		if !ok {
-			err = errors.New("Failed to typecast interface.")
-			return
-		}
-		value = reflect.ValueOf(obj)
-		return
-	case "Size":
+	case "ModifiedUnix":
 		if x == nil {
 			var obj int
 			value = reflect.ValueOf(obj)

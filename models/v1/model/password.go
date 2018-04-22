@@ -571,16 +571,16 @@ func (obj *Password) ParseInterface(x interface{}) (err error) {
 func (obj modelPasswords) ReflectByFieldName(fieldName string, x interface{}) (value reflect.Value, err error) {
 
 	switch fieldName {
-	case "Value":
-		obj, ok := x.(string)
+	case "Id":
+		obj, ok := x.(bson.ObjectId)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
 		}
 		value = reflect.ValueOf(obj)
 		return
-	case "Id":
-		obj, ok := x.(bson.ObjectId)
+	case "Value":
+		obj, ok := x.(string)
 		if !ok {
 			err = errors.New("Failed to typecast interface.")
 			return
