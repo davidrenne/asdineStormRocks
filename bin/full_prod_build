@@ -1,0 +1,9 @@
+bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/kill_all
+bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/build_full
+cd $GOPATH
+whoami=$(whoami)
+if [[ "$whoami" == "root" ]]; then
+    asdineStormRocks
+else
+    sudo asdineStormRocks
+fi

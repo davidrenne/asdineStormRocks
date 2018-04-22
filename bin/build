@@ -1,0 +1,11 @@
+go install github.com/davidrenne/asdineStormRocks
+cd $GOPATH/src/github.com/davidrenne/asdineStormRocks/web/app/javascript
+bash build-gopher.sh
+cd $GOPATH/
+go build src/github.com/davidrenne/asdineStormRocks/asdineStormRocks.go
+whoami=$(whoami)
+if [[ "$whoami" == "root" ]]; then
+    asdineStormRocks
+else
+    sudo asdineStormRocks
+fi

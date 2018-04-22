@@ -1,0 +1,1 @@
+python $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/get_config_value.py application productName

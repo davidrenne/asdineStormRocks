@@ -1,0 +1,15 @@
+
+ASDINESTORMROCKS Release Notes:
+
+Legend:
+				[+] new feature
+				[-] removed function
+				[*] bug fixed and improvement made
+
+-asdineStormRocks 0.0.2 Firmware
+				[*] Initial Changes By Developer
+
+-asdineStormRocks 0.0.1 Firmware
+				[*] GoCore Application Generated and Committed Base App
+
+				-APPNAME

@@ -1,0 +1,3 @@
+cd $GOPATH
+go build src/github.com/davidrenne/asdineStormRocks/asdineStormRocks.go
+go install github.com/davidrenne/asdineStormRocks

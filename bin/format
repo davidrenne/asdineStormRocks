@@ -1,0 +1,2 @@
+bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/format_golang /src/github.com/davidrenne/asdineStormRocks/
+bash $GOPATH/src/github.com/davidrenne/asdineStormRocks/bin/format_golang /src/github.com/DanielRenne/GoCore/
