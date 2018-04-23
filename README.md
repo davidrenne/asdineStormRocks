@@ -1,6 +1,6 @@
 # asdineStormRocks [a [GoCore Application](https://github.com/DanielRenne/GoCore/ "GoCore Application")]
 
-Add an elevator description to pitch of what this GoCore web app does here.
+Spawned this app off for asdine in discussion about joins so they can see a live goCore app https://github.com/asdine/storm/issues/216
 
 ## Setting up a development environment for this application ##
 
